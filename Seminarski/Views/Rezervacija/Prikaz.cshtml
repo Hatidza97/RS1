@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Tittle"] = "Prikaz";
+}
+@model Seminarski.ViewModels.RezervacijaPrikazVM;
+    <div class="div1">
+        <form class="forma1">
+            <input asp-for="KategorijaId" hidden />
+            <input asp-for="UposlenikId" hidden />
+            <input asp-for="Id" hidden />
+            <input asp-for="TerminId" hidden />
+            <div class="form-group">
+                <label>Rezervisana usluga:</label>
+                <input asp-for="Usluge" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label>Vrijeme rezervacije:</label>
+                <input asp-for="Datum" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Kategorija usluge:</label>
+                <input asp-for="Kategorija" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label>Uposlenik koji obavlja uslugu:</label>
+                <input asp-for="Uposlenici" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-info" asp-controller="Rezervacija" asp-action="Nazad">Nazad</a>
+            </div>
+        </form>
+    </div>
+    <style>
+    body { /*background-color: #e8c589;*/ 
+           background-image: url("https://cutewallpaper.org/26/beauty-salon-wallpaper-border/3008827771.jpg");
+           background-position:center;
+
+         }
+
+        .form-group {
+            border-radius: 20px;
+            background-color: transparent;
+            color:white;
+        }
+    </style>

@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Tittle"] = "Login";
+    string error_poruka = (string)ViewData["error_poruka"];
+    Layout = "_LayoutAnonim";
+}
+@model Seminarski.ViewModels.LoginVM;
+<div class="col-md-4 col-md-offset-4">
+    <h2>Login</h2>
+    <form asp-action="Login">
+        <div class="form-group">
+            <label>Username:</label>
+            <div>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <div>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+        <input type="submit"class="form-control btn btn-primary" value="Login" />
+        <input asp-for="ZapamtiPassword" /> Zapamti password
+    </form>
+   @if(error_poruka!=null)
+    {
+    <br />
+    <div class="alert alert-danger">
+        @error_poruka
+    </div>
+    }
+</div>
+<style>
+    body {
+        background-color: #343a40;
+    }
+    label{
+        color:wheat;
+    }
+    h2{
+        color:wheat;
+    }
+</style>

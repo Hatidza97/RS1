@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Seminarski.ViewModels.NotifikacijeIndexVM;
+
+<form asp-controller="Notifikacije" asp-action="Posalji">
+    <input asp-for="Id" value="@Model.Id" hidden />
+    <div class="form-group">
+        <label>Primalac:</label>
+        <input asp-for="User" value="@Model.User" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Sadrzaj notifikacije:</label>
+        <input asp-for="Poruka" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        @*<a class="btn btn-info" asp-controller="Notifikacije" asp-action="Posalji" model="@Model">Posalji</a>*@
+        <button class="btn btn-info">Posalji</button>
+    </div>
+</form>
+<style>
+    body {
+        /* background-color: #343a40;*/
+        background-image: url("//archello.s3.eu-central-1.amazonaws.com/images/2018/03/22/---------------------------------------------.1521707101.6691.jpg");
+        background-position: center;
+        background-size: cover;
+    }
+</style>

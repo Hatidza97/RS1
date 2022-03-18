@@ -1,0 +1,33 @@
+﻿@using Seminarski.Models
+@*
+    
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    
+}
+@model KorisnikInsert
+<form asp-controller="Korisnik" asp-action="Insert">
+    <label>Ime:</label><br />
+    <input type="text" asp-for="Ime"  /><br />
+    <label>Prezime:</label><br />
+    <input type="text" asp-for="Prezime" /><br />
+    <label>Mail:</label><br />
+    <input type="text" asp-for="Mail" /><br />
+    <label>Username:</label><br />
+    <input type="text" asp-for="Username"  /><br />
+    <label>Broj telefona:</label><br />
+    <input type="text" asp-for="Telefon" /><br />
+    <label>Lozinka:</label><br />
+    <input type="text" asp-for="Lozinka" /><br />
+    <button class="btn btn-info" type="submit" value="Snimi">Spasi</button>
+</form>
+<style>
+body {
+    background-image: url("https://cdn.wallpapersafari.com/2/43/UscYpa.jpg");
+       background-position:center;
+}
+.btn-info{
+    background-color:salmon;
+}
+</style>

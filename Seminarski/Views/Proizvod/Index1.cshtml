@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using X.PagedList.Mvc.Core;
+@using X.PagedList; 
+@{
+    ViewData["Tittle"] = "Index1";
+}
+
+@model IEnumerable<Seminarski.ViewModels.ProizvodiVM.Rows>;
+
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Naziv</th>
+                <th>Kategorija proizvoda</th>
+                <th>Cijena proizvoda</th>
+                <th>Kolicina</th>
+                <th>Stanje na skladištu</th>
+                <th>Opis</th>
+                <th>Slika</th>
+                <th>Akcija</th>
+            </tr>
+        </thead>
+        <tbody style="color:whitesmoke">
+            @foreach (var x in Model)
+            {
+               
+                    <tr>
+                        <td>@x.Proizvod</td>
+                        <td>@x.Kategorija</td>
+                        <td>@x.Cijena KM</td>
+                        <td>@x.Kolicina kom</td>
+                        <td>@x.StanjeNaSkladistu kom</td>
+                        <td>@x.Opis</td>
+                        <td>
+                            <img id="slika" src="~/images/@x.Slika" alt="" width="120px" height="120px" />
+                        </td>
+                        <td style="width:auto">
+                            <a class="btn btn-info" asp-controller="Proizvod" asp-action="Uredi" asp-route-id="@x.ProizvodId">Uredi</a> |
+                            <a class="btn btn-danger" asp-controller="Proizvod" asp-action="Obrisi" asp-route-id="@x.ProizvodId">Obrisi</a>
+                        </td>
+
+                    </tr>
+            }
+        </tbody>
+    </table>
+    
+    @*<a class="btn btn-info" asp-controller="Proizvod" asp-action="IndexSlika">Slika</a>*@
+    <div>
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index1", "Proizvod", new { page}))
+    </div>
+    <a class="btn btn-info" asp-controller="Proizvod" asp-action="Dodaj">Dodaj</a>
+</div>
+
+    <style>
+    body { background-image: url("https://wallpaperaccess.com/full/5894380.jpg");
+           background-position:center;
+           background-size:cover;
+    }
+    .btn-info{
+        background-color: burlywood;
+        color:black;
+    }
+    .btn-danger{
+        background-color:black;
+        color:white;
+    }
+    </style>

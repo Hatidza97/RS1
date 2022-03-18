@@ -1,0 +1,36 @@
+﻿@using Seminarski.Models
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "UrediView";
+}
+@model Korisnik
+<form >
+    <input asp-for="Id" hidden />
+    <label>Ime:</label><br />
+    <input type="text" asp-for="Ime" value="@Model.Ime" /><br />
+    <label>Prezime:</label><br />
+    <input type="text" asp-for="Prezime" value="@Model.Prezime" /><br />
+    <label>Mail:</label><br />
+    <input type="text" asp-for="Mail" value="@Model.Mail" /><br />
+    <label>Username:</label><br />
+    <input type="text" asp-for="Username" value="@Model.Username" /><br />
+    <label>Broj telefona:</label><br />
+    <input type="text" asp-for="Telefon" value="@Model.Telefon" /><br />
+    <label>Lozinka:</label><br />
+    <input type="text" asp-for="Lozinka" value="@Model.Lozinka" /><br />
+</form>
+<a class="btn btn-block" asp-controller="Korisnik" asp-action="Uredi" asp-route-id="@Model.Id">Update</a>
+
+<style>
+body { 
+    background-image: url("https://cdn.wallpapersafari.com/2/43/UscYpa.jpg");
+       background-position:center;
+}
+.btn-block{
+    background-color:salmon;
+    width:80px;
+    height:50px;
+}
+</style>

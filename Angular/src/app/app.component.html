@@ -1,0 +1,20 @@
+<body>
+<input class="myInput" type="text" placeholder="Pretraga po imenu proizvoda" (keyup)="onSearch($event)">
+<table class="myTable">
+  <thead>
+  <tr>
+    <th>Naziv</th>
+    <th>Cijena</th>
+    <th>Stanje na skladistu</th>
+    <th>Opis</th>
+  </tr>
+  </thead>
+  <tbody *ngIf="ProizvodPrikaz !=null"></tbody>
+  <tr *ngFor="let i of getProizvodi()">
+    <td>{{i.proizvod}}</td>
+    <td>{{i.cijena}}</td>
+    <td>{{i.stanjeNaSkladistu}}</td>
+    <td>{{i.opis}}</td>
+  </tr>
+</table>
+</body>

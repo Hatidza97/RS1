@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Tittle"] = "Dodaj";
+}
+
+@model Seminarski.ViewModels.ProizvodiDodajVM;
+
+
+<form enctype="multipart/form-data" style="color:white" asp-controller="Proizvod" asp-action="Snimi">
+    <div class="form-group">
+        <label asp-for="Proizvod">Naziv proizvoda:</label><br />
+        <input asp-for="Proizvod" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Cijena">Cijena proizvoda:</label><br />
+        <input asp-for="Cijena" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label class="control-label" asp-for="Kolicina">Kolicina proizvoda:</label><br />
+        <input asp-for="Kolicina" class="form-control" type="number" />
+    </div>
+    <div class="form-group">
+        <label class="control-label" asp-for="Proizvod">Stanje na skladistu:</label><br />
+        <input asp-for="StanjeNaSkladistu" class="form-control" type="number" />
+    </div>
+    <div class="form-group">
+        <label asp-for="KategorijaID" class="control-label">Kategorija proizvoda:</label><br />
+        <select class="form-control" asp-for="KategorijaID" asp-items="@Model.Kategorije"></select>
+    </div>
+    <div class="form-group">
+        <label>Opis proizvoda:</label><br />
+        <input asp-for="Opis" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label>Izaberi sliku:</label><br />
+        <input asp-for="SlikaUrl" class="form-control custom-file-input" value="@Model.SlikaUrl" />
+    </div>
+    <div class="form-group">
+        <button style="color:white" class="btn btn-default">Snimi</button>
+    </div>
+
+</form>
+
+<style>
+    .form-control {
+        border-radius: 30px;
+    }
+
+    body {
+        background-color: #343a40;
+    }
+</style>

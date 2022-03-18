@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Tittle"] = "Index";
+}
+@model Seminarski.ViewModels.RezervacijaIndexVM;
+
+
+<div class="div1">
+    <input asp-for="Id" hidden />
+    <form asp-action="Rezervisi">
+        <div class="form-group">
+            <label asp-for="Id">Odaberite uslugu koju želite rezervisati:</label>
+            <select asp-for="Id" asp-items="Model.Usluge" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label>Odaberite datum za rezervaciju:</label>
+            <input asp-for="Datum"  class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Uposlenik koji je zaduzen za tretman: </label>
+            <select asp-for="UposlenikId" asp-items="Model.Uposlenici" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label>Kategorija usluge: </label>
+            <select asp-for="KategorijaId" asp-items="Model.Kategorija" class="form-control"></select> 
+        </div>
+        <div class="form-group">
+            <button class="btn btn-info">Rezervisi</button>
+       
+            <a class="btn btn-info" asp-controller="Rezervacija" asp-action="Prikaz" asp-route-id="@Model.TerminId">Prikaz rezervacija</a>
+        </div>
+    </form>
+</div>
+<style>
+body {
+        background-image :url("https://cdn.wallpapersafari.com/52/81/z9FxcE.jpg");
+        background-position:center;
+        background-size:cover;
+        width:900px;
+        max-height:900px;
+}
+    .form-group{
+        text-decoration-color:black;
+    }
+    .btn-info{
+        background-color:darksalmon;
+        border-color:black;
+        border-radius:10px;
+    }
+
+    
+</style>

@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Tittle"] = "Index";
+}
+@model Seminarski.ViewModels.CjenovnikIndexVM;
+<table class="table">
+    <thead>
+        <tr>
+            <th>Usluga</th>
+            <th>Cijena</th>
+            <th>Opis</th>
+            <th>Trajanje</th>
+            <th>Uredi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+            <tr>
+                    <td>@x.Usluga</td>
+                    <td>@x.Cijena KM </td>
+                    <td>@x.Opis </td>
+                    <td>@x.Trajanje h</td>
+                    <td><a asp-controller="Cjenovnik" asp-action="Uredi" asp-route-id="@x.Id">Uredi</a></td>
+                </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-info" asp-controller="Cjenovnik" asp-action="Dodaj">Dodaj novu uslugu</a>
+<a class="btn btn-info" asp-controller="Izvjestaj" asp-action="IzvjestajPDF">Preuzmi izvjestaj</a>
+<style>
+    body {
+        /* background-color: #343a40;*/
+        background-image: url("//archello.s3.eu-central-1.amazonaws.com/images/2018/03/22/---------------------------------------------.1521707101.6691.jpg");
+        background-position: center;
+        background-size: cover;
+    }
+
+    .table {
+        background-color: #d9d6d0;
+        border-radius: 20px;
+    }
+</style>
